@@ -1,9 +1,6 @@
 package com.example.currencyalfa.currency_alfa.models;
 
 
-import lombok.Data;
-
-import java.util.Map;
 
 
 public class Gif {
