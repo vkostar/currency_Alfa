@@ -1,6 +1,6 @@
 package com.example.currencyalfa.currency_alfa.client;
 
-import com.example.currencyalfa.currency_alfa.models.Gif;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

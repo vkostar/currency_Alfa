@@ -2,9 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Exchange rates</title>
+    <title>Книги</title>
 </head>
 <body>
-<img th:src="${src}">
+
+<h1> Выберите валюту из списка ниже</h1>
+
+<!--<tr th:each="instance : ${currentAll}">-->
+<!--    <td th:text="${instance.key}">keyvalue</td>-->
+<!--    <td th:text="${instance.value}">num</td>-->
+<!--    <br/>-->
+<!--</tr>-->
+
+
+<!--<th:block th:include="/_menu"></th:block>-->
+<!--<h2>Select Option Example 2</h2>-->
+<!--<form name='f' th:object="${personForm}" method='POST'>-->
+    <table>
+        <tr>
+            <td>Select Country:</td>
+
+                <select th:field="*{current}">
+                    <option value="валюта"> -- </option>
+                    <option th:each="entry : ${currentAll.entrySet()}"
+
+                            th:value="${entry.key}"
+                            th:utext="${entry.key}">
+                    </option>
+                </select>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+        </tr>
+    </table>
+</form>
+
+<br/>
+<hr/>
+
 </body>
 </html>
