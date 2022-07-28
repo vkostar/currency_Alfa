@@ -40,10 +40,10 @@ public class UtilForCalculate {
         Double currentValue = currentRates.get(nameOfCurrencies);
         Double pastValue = historicRates.get(nameOfCurrencies);
         if (currentValue > pastValue) {
-            return "dog";
+            return "rich";
         }
         if (currentValue < pastValue) {
-            return "cat";
+            return "bankrupt";
         }
         else throw new NotFoundProperGif("currency rates is equal");
 

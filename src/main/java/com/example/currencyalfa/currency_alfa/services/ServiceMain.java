@@ -2,7 +2,6 @@ package com.example.currencyalfa.currency_alfa.services;
 
 import com.example.currencyalfa.currency_alfa.client.GifClient;
 import com.example.currencyalfa.currency_alfa.client.RatesClient;
-import com.example.currencyalfa.currency_alfa.models.Fixed_height;
 import com.example.currencyalfa.currency_alfa.models.Rates;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

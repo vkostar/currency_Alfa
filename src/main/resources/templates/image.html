@@ -2,27 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Книги</title>
+    <title>Currency</title>
 </head>
 <body>
 
 <h1> Выберите валюту из списка ниже</h1>
 
-<!--<tr th:each="instance : ${currentAll}">-->
-<!--    <td th:text="${instance.key}">keyvalue</td>-->
-<!--    <td th:text="${instance.value}">num</td>-->
-<!--    <br/>-->
-<!--</tr>-->
 
-
-<!--<th:block th:include="/_menu"></th:block>-->
-<!--<h2>Select Option Example 2</h2>-->
-<!--<form name='f' th:object="${personForm}" method='POST'>-->
+<form  th:method="POST" th:action="@{/getGif}" >
     <table>
         <tr>
-            <td>Select Country:</td>
+            <td>Select:</td>
 
-                <select th:field="*{current}">
+                <select th:object="${unit}" th:field="*{text}" id="unit" >
                     <option value="валюта"> -- </option>
                     <option th:each="entry : ${currentAll.entrySet()}"
 
@@ -35,7 +27,7 @@
             </td>
         </tr>
         <tr>
-            <td><input name="submit" type="submit" value="submit" /></td>
+            <td><input name="current" type="submit" value="push the button" /></td>
         </tr>
     </table>
 </form>
