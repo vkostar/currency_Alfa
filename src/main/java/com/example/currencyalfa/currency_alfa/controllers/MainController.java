@@ -8,7 +8,6 @@ import com.example.currencyalfa.currency_alfa.services.ServiceMain;
 import com.example.currencyalfa.currency_alfa.util.NotFoundProperGif;
 import com.example.currencyalfa.currency_alfa.util.UtilForCalculate;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +23,6 @@ public class MainController {
     GifClient gifClient;
     ModelMapper modelMapper;
     UtilForCalculate util;
-
-    @Value("${gif_api_key}")
-    String apiGifKey;
 
 
     public MainController(ServiceMain serviceMain, RatesClient ratesClient, GifClient gifClient, ModelMapper modelMapper, UtilForCalculate util) {

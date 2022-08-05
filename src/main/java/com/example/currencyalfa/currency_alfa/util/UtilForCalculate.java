@@ -45,7 +45,7 @@ public class UtilForCalculate {
         if (currentValue < pastValue) {
             return "bankrupt";
         }
-        else throw new NotFoundProperGif("currency rates is equal");
+        else return "equal";
 
     }
 
