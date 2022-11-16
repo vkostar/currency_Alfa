@@ -27,14 +27,13 @@ public class UtilForCalculate {
     }
 
 
-
     @Autowired
 
     public UtilForCalculate(ServiceMain serviceMain) {
         this.serviceMain = serviceMain;
     }
 
-   public  String calculateProperWordForRequest(String nameOfCurrencies) throws NotFoundProperGif {
+    public String calculateProperWordForRequest(String nameOfCurrencies) throws NotFoundProperGif {
         Map<String, Double> currentRates = serviceMain.getCurrentRates();
         Map<String, Double> historicRates = serviceMain.getHistoricRates(getYesterdayString());
         Double currentValue = currentRates.get(nameOfCurrencies);
@@ -44,8 +43,7 @@ public class UtilForCalculate {
         }
         if (currentValue < pastValue) {
             return "bankrupt";
-        }
-        else return "equal";
+        } else return "equal";
 
     }
 
