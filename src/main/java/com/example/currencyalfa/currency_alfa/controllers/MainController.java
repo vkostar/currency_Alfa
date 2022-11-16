@@ -34,7 +34,7 @@ public class MainController {
     }
 
     @GetMapping
-    public String getListOfRates(Model model, @ModelAttribute("unit") ViewObject unit) throws NotFoundProperGif {
+    public String getListOfRates(Model model) {
         Map<String, Double> mapa = serviceMain.getCurrentRates();
         model.addAttribute("currentAll", mapa);
         return "image";

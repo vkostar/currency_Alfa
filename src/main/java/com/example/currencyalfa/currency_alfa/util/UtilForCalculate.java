@@ -16,6 +16,10 @@ public class UtilForCalculate {
 
     ServiceMain serviceMain;
 
+    @Autowired
+    public UtilForCalculate(ServiceMain serviceMain) {
+        this.serviceMain = serviceMain;
+    }
 
     public String getYesterdayString() {
         Calendar cal = Calendar.getInstance();
@@ -26,14 +30,7 @@ public class UtilForCalculate {
         return simpleDateFormat.format(cal.getTime());
     }
 
-
-    @Autowired
-
-    public UtilForCalculate(ServiceMain serviceMain) {
-        this.serviceMain = serviceMain;
-    }
-
-    public String calculateProperWordForRequest(String nameOfCurrencies) throws NotFoundProperGif {
+    public String calculateProperWordForRequest(String nameOfCurrencies) {
         Map<String, Double> currentRates = serviceMain.getCurrentRates();
         Map<String, Double> historicRates = serviceMain.getHistoricRates(getYesterdayString());
         Double currentValue = currentRates.get(nameOfCurrencies);
