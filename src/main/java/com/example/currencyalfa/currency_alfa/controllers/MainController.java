@@ -32,24 +32,32 @@ public class MainController {
         this.util = util;
     }
 
-    @GetMapping
+
+    @GetMapping("/")
     public String getListOfRates(Model model) {
+        // Получаем все курсы
         Map<String, Double> mapa = serviceMain.getCurrentRates();
         model.addAttribute("currentAll", mapa);
+
+        // Пустой объект для биндинга формы
+        model.addAttribute("unit", new ViewObject());
+
+        // Если нужно показать список кодов валют в форме
+        model.addAttribute("codes", mapa.keySet());
         return "image";
     }
 
-
     @PostMapping("/getGif")
-    public Object getGif(@ModelAttribute("unit") ViewObject unit,
+    public String getGif(@ModelAttribute("unit") ViewObject unit,
                          Model model) {
-        String UrlName = util.calculateProperWordForRequest(unit.getCurrencyCode());
-        String ULR = serviceMain.getUrl(UrlName);
-        model.addAttribute("src", ULR);
+        // Получаем слово для запроса гифки
+        String urlName = util.calculateProperWordForRequest(unit.getCurrencyCode());
+        String gifUrl  = serviceMain.getUrl(urlName);
 
-
+        model.addAttribute("src", gifUrl);
         return "gifka";
     }
+
 
 
 }
