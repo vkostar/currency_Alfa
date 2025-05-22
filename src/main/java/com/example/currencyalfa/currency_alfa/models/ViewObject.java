@@ -1,13 +1,13 @@
 package com.example.currencyalfa.currency_alfa.models;
 
 public class ViewObject {
-    String text;
+    private String currencyCode;
 
-    public String getText() {
-        return text;
+    public String getCurrencyCode() {
+        return currencyCode;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
     }
 }

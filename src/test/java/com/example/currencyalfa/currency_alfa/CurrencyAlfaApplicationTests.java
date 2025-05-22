@@ -2,7 +2,7 @@ package com.example.currencyalfa.currency_alfa;
 
 import com.example.currencyalfa.currency_alfa.models.Rates;
 import com.example.currencyalfa.currency_alfa.services.ServiceMain;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,17 +51,17 @@ class CurrencyAlfaApplicationTests {
                 .thenReturn(todayRates);
         Mockito.when(RatesClient.getHistorical(Mockito.eq(yesterdayFormat), Mockito.anyString()))
                 .thenReturn(yesterdayRates);
-        Assert.assertTrue(serviceMain.getCurrentRates().get("CURR1")
+        Assertions.assertTrue(serviceMain.getCurrentRates().get("CURR1")
                 > serviceMain.getHistoricRates(yesterdayFormat).get("CURR1"));
 
-//        Assert.assertTrue(
+//        Assertions.assertTrue(
 //                RatesClient.getRates("test").getRates().get("CURR1")  >
 //                        RatesClient.getHistorical(yesterdayFormat,"test").getRates().get("CURR1"));
 
-        Assert.assertTrue(serviceMain.getCurrentRates().get("CURR2")
+        Assertions.assertTrue(serviceMain.getCurrentRates().get("CURR2")
                < serviceMain.getHistoricRates(yesterdayFormat).get("CURR2"));
 
-        Assert.assertTrue(Objects.equals(serviceMain.getCurrentRates().get("CURR3"), serviceMain.getHistoricRates(yesterdayFormat).get("CURR3")));
+        Assertions.assertTrue(Objects.equals(serviceMain.getCurrentRates().get("CURR3"), serviceMain.getHistoricRates(yesterdayFormat).get("CURR3")));
 
     }
 
