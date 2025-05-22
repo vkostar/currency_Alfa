@@ -13,7 +13,7 @@
     <table>
         <tr>
 
-                <select th:object="${unit}" th:field="*{text}" id="unit" >
+                <select th:object="${unit}" th:field="*{currencyCode}" id="unit" >
                     <option value="валюта"> -- </option>
                     <option th:each="entry : ${currentAll.entrySet()}"
 

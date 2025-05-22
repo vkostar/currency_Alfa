@@ -1,6 +1,7 @@
 package com.example.currencyalfa.currency_alfa.util;
 
 
+import com.example.currencyalfa.currency_alfa.exceptions.CurrencyNotFoundException;
 import com.example.currencyalfa.currency_alfa.services.ServiceMain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,6 +36,11 @@ public class UtilForCalculate {
         Map<String, Double> historicRates = serviceMain.getHistoricRates(getYesterdayString());
         Double currentValue = currentRates.get(nameOfCurrencies);
         Double pastValue = historicRates.get(nameOfCurrencies);
+
+        if (currentValue == null || pastValue == null) {
+            throw new CurrencyNotFoundException("Currency code '" + nameOfCurrencies + "' not found or historical data unavailable.");
+        }
+
         if (currentValue > pastValue) {
             return "rich";
         }
